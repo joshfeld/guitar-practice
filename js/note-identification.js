@@ -71,6 +71,9 @@ const NoteIdentification = {
             highlightedPosition: this.currentPosition
         });
 
+        // Play the note
+        Fretboard.playNote(this.currentPosition.string, this.currentPosition.fret);
+
         // Clear input and feedback
         this.answerInput.value = '';
         this.feedbackEl.textContent = '';

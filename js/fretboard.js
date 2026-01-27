@@ -4,6 +4,12 @@ const Fretboard = {
     // Note names (using sharps)
     NOTES: ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'],
 
+    // Open string frequencies in Hz (standard tuning E2, A2, D3, G3, B3, E4)
+    STRING_FREQUENCIES: [82.41, 110.00, 146.83, 196.00, 246.94, 329.63],
+
+    // Audio context (created on first use)
+    audioContext: null,
+
     // Enharmonic equivalents for answer validation
     ENHARMONICS: {
         'C#': 'Db', 'Db': 'C#',
@@ -68,6 +74,54 @@ const Fretboard = {
     // Get a random note name
     getRandomNote() {
         return this.NOTES[Math.floor(Math.random() * 12)];
+    },
+
+    // Play the note at a given string/fret position
+    playNote(string, fret) {
+        // Create audio context on first use
+        if (!this.audioContext) {
+            this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        }
+
+        // Resume if suspended (browser autoplay policy)
+        if (this.audioContext.state === 'suspended') {
+            this.audioContext.resume();
+        }
+
+        const ctx = this.audioContext;
+        const now = ctx.currentTime;
+
+        // Calculate frequency: open string frequency * 2^(fret/12)
+        const baseFreq = this.STRING_FREQUENCIES[string];
+        const frequency = baseFreq * Math.pow(2, fret / 12);
+
+        // Create a plucked string sound using multiple oscillators
+        const harmonics = [1, 2, 3, 4, 5, 6];
+        const harmonicGains = [1, 0.5, 0.33, 0.25, 0.2, 0.15];
+
+        // Master gain for overall volume
+        const masterGain = ctx.createGain();
+        masterGain.connect(ctx.destination);
+        masterGain.gain.setValueAtTime(0.3, now);
+        masterGain.gain.exponentialRampToValueAtTime(0.001, now + 2);
+
+        harmonics.forEach((harmonic, i) => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(frequency * harmonic, now);
+
+            // Higher harmonics decay faster (simulates string damping)
+            gain.gain.setValueAtTime(harmonicGains[i], now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + (2 / harmonic));
+
+            osc.connect(gain);
+            gain.connect(masterGain);
+
+            osc.start(now);
+            osc.stop(now + 2);
+        });
     },
 
     // Render fretboard as SVG
