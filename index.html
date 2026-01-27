@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guitar Practice</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+            <h1>Guitar Practice</h1>
+            <nav class="nav">
+                <button class="nav-btn active" data-module="metronome">Metronome</button>
+                <button class="nav-btn" data-module="note-id">Note ID</button>
+                <button class="nav-btn" data-module="fret-click">Fret Click</button>
+            </nav>
+        </header>
+
+        <main class="main">
+            <!-- Metronome Module -->
+            <section id="metronome" class="module active">
+                <div class="card">
+                    <h2>Metronome</h2>
+                    <div class="metronome-display">
+                        <div class="bpm-display">
+                            <span id="bpm-value">120</span>
+                            <span class="bpm-label">BPM</span>
+                        </div>
+                        <div class="beat-indicators" id="beat-indicators"></div>
+                    </div>
+                    <div class="controls">
+                        <div class="control-group">
+                            <label for="bpm-slider">Tempo</label>
+                            <input type="range" id="bpm-slider" min="40" max="240" value="120">
+                        </div>
+                        <div class="control-group">
+                            <label for="time-sig">Time Signature</label>
+                            <select id="time-sig">
+                                <option value="4">4/4</option>
+                                <option value="3">3/4</option>
+                                <option value="6">6/8</option>
+                                <option value="2">2/4</option>
+                                <option value="5">5/4</option>
+                                <option value="7">7/8</option>
+                            </select>
+                        </div>
+                        <button id="metronome-toggle" class="btn btn-primary btn-large">Start</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Note Identification Module -->
+            <section id="note-id" class="module">
+                <div class="card">
+                    <h2>Note Identification</h2>
+                    <div id="note-id-setup" class="game-setup">
+                        <p>A fret will be highlighted on the fretboard. Type the note name as fast as you can!</p>
+                        <div class="control-group">
+                            <label for="note-id-questions">Number of Questions</label>
+                            <select id="note-id-questions">
+                                <option value="5">5</option>
+                                <option value="10" selected>10</option>
+                                <option value="15">15</option>
+                                <option value="20">20</option>
+                            </select>
+                        </div>
+                        <button id="note-id-start" class="btn btn-primary">Start Game</button>
+                    </div>
+                    <div id="note-id-game" class="game-area hidden">
+                        <div class="game-stats">
+                            <span>Question: <strong id="note-id-current">1</strong>/<strong id="note-id-total">10</strong></span>
+                            <span>Score: <strong id="note-id-score">0</strong></span>
+                        </div>
+                        <div id="note-id-fretboard" class="fretboard-container"></div>
+                        <div class="answer-input">
+                            <input type="text" id="note-id-answer" placeholder="Enter note (e.g., A, F#, Bb)" maxlength="2" autocomplete="off">
+                            <button id="note-id-submit" class="btn btn-primary">Submit</button>
+                        </div>
+                        <div id="note-id-feedback" class="feedback"></div>
+                    </div>
+                    <div id="note-id-results" class="game-results hidden">
+                        <h3>Results</h3>
+                        <div class="results-stats">
+                            <div class="stat">
+                                <span class="stat-value" id="note-id-final-score">0</span>
+                                <span class="stat-label">Correct</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value" id="note-id-final-total">0</span>
+                                <span class="stat-label">Total</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value" id="note-id-avg-time">0</span>
+                                <span class="stat-label">Avg Time (s)</span>
+                            </div>
+                        </div>
+                        <div id="note-id-missed" class="missed-notes"></div>
+                        <button id="note-id-restart" class="btn btn-primary">Play Again</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Fretboard Click Module -->
+            <section id="fret-click" class="module">
+                <div class="card">
+                    <h2>Find the Notes</h2>
+                    <div id="fret-click-setup" class="game-setup">
+                        <p>A note will be shown. Click all the frets on the fretboard that match that note!</p>
+                        <div class="control-group">
+                            <label for="fret-click-questions">Number of Rounds</label>
+                            <select id="fret-click-questions">
+                                <option value="5">5</option>
+                                <option value="10" selected>10</option>
+                                <option value="15">15</option>
+                                <option value="20">20</option>
+                            </select>
+                        </div>
+                        <button id="fret-click-start" class="btn btn-primary">Start Game</button>
+                    </div>
+                    <div id="fret-click-game" class="game-area hidden">
+                        <div class="game-stats">
+                            <span>Round: <strong id="fret-click-current">1</strong>/<strong id="fret-click-total">10</strong></span>
+                            <span>Score: <strong id="fret-click-score">0</strong></span>
+                        </div>
+                        <div class="target-note">
+                            Find all: <span id="fret-click-target">A</span>
+                        </div>
+                        <div id="fret-click-fretboard" class="fretboard-container"></div>
+                        <button id="fret-click-submit" class="btn btn-primary">Check Answer</button>
+                        <div id="fret-click-feedback" class="feedback"></div>
+                    </div>
+                    <div id="fret-click-results" class="game-results hidden">
+                        <h3>Results</h3>
+                        <div class="results-stats">
+                            <div class="stat">
+                                <span class="stat-value" id="fret-click-final-score">0</span>
+                                <span class="stat-label">Perfect Rounds</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value" id="fret-click-final-total">0</span>
+                                <span class="stat-label">Total Rounds</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value" id="fret-click-avg-time">0</span>
+                                <span class="stat-label">Avg Time (s)</span>
+                            </div>
+                        </div>
+                        <button id="fret-click-restart" class="btn btn-primary">Play Again</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/fretboard.js"></script>
+    <script src="js/metronome.js"></script>
+    <script src="js/note-identification.js"></script>
+    <script src="js/fretboard-click.js"></script>
+    <script>
+        // Navigation
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.module').forEach(m => m.classList.remove('active'));
+                btn.classList.add('active');
+                document.getElementById(btn.dataset.module).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,511 @@
+/* CSS Custom Properties */
+:root {
+    --bg-primary: #1a1a2e;
+    --bg-secondary: #16213e;
+    --bg-card: #1f2937;
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --accent: #6366f1;
+    --accent-hover: #818cf8;
+    --success: #22c55e;
+    --error: #ef4444;
+    --warning: #f59e0b;
+    --border: #374151;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.2);
+    --radius: 8px;
+    --radius-lg: 12px;
+    --transition: 150ms ease;
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    color: var(--text-primary);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* App Layout */
+.app {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Navigation */
+.nav {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.nav-btn {
+    padding: 0.75rem 1.5rem;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all var(--transition);
+}
+
+.nav-btn:hover {
+    border-color: var(--accent);
+    color: var(--text-primary);
+}
+
+.nav-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+}
+
+/* Card */
+.card {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border);
+}
+
+.card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+/* Modules */
+.module {
+    display: none;
+}
+
+.module.active {
+    display: block;
+}
+
+/* Buttons */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-large {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+}
+
+/* Form Controls */
+.control-group {
+    margin-bottom: 1.25rem;
+}
+
+.control-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+input[type="range"] {
+    width: 100%;
+    height: 8px;
+    border-radius: 4px;
+    background: var(--border);
+    outline: none;
+    -webkit-appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--accent);
+    cursor: pointer;
+    transition: background var(--transition);
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    background: var(--accent-hover);
+}
+
+select, input[type="text"] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color var(--transition);
+}
+
+select:focus, input[type="text"]:focus {
+    border-color: var(--accent);
+}
+
+/* Metronome Styles */
+.metronome-display {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.bpm-display {
+    margin-bottom: 1.5rem;
+}
+
+.bpm-display #bpm-value {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.bpm-label {
+    display: block;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.beat-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.beat-indicator {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--border);
+    transition: all 0.05s ease;
+}
+
+.beat-indicator.active {
+    background: var(--accent);
+    box-shadow: 0 0 20px var(--accent);
+    transform: scale(1.2);
+}
+
+.beat-indicator.downbeat.active {
+    background: var(--warning);
+    box-shadow: 0 0 20px var(--warning);
+}
+
+.controls {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+#metronome-toggle {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+#metronome-toggle.running {
+    background: var(--error);
+}
+
+#metronome-toggle.running:hover {
+    background: #dc2626;
+}
+
+/* Game Styles */
+.game-setup {
+    text-align: center;
+}
+
+.game-setup p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.game-setup .control-group {
+    max-width: 200px;
+    margin: 0 auto 1.5rem;
+}
+
+.game-area, .game-results {
+    text-align: center;
+}
+
+.game-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding: 0.75rem 1rem;
+    background: var(--bg-secondary);
+    border-radius: var(--radius);
+}
+
+.game-stats strong {
+    color: var(--accent);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Fretboard Container */
+.fretboard-container {
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    padding: 1rem 0;
+}
+
+.fretboard-container svg {
+    display: block;
+    margin: 0 auto;
+}
+
+/* Answer Input */
+.answer-input {
+    display: flex;
+    gap: 0.75rem;
+    max-width: 300px;
+    margin: 1rem auto;
+}
+
+.answer-input input {
+    flex: 1;
+    text-align: center;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+}
+
+/* Feedback */
+.feedback {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    border-radius: var(--radius);
+    font-weight: 500;
+}
+
+.feedback.correct {
+    background: rgba(34, 197, 94, 0.2);
+    color: var(--success);
+}
+
+.feedback.incorrect {
+    background: rgba(239, 68, 68, 0.2);
+    color: var(--error);
+}
+
+/* Target Note */
+.target-note {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.target-note span {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+/* Results */
+.game-results h3 {
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+.results-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-value {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.stat-label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.missed-notes {
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+}
+
+.missed-notes h4 {
+    color: var(--error);
+    margin-bottom: 0.5rem;
+}
+
+/* Fretboard SVG Styles */
+.fret-marker {
+    fill: var(--border);
+}
+
+.string-line {
+    stroke: #9ca3af;
+    stroke-width: 1.5;
+}
+
+.string-line.thick {
+    stroke-width: 2.5;
+}
+
+.fret-line {
+    stroke: #6b7280;
+    stroke-width: 2;
+}
+
+.nut {
+    stroke: #d1d5db;
+    stroke-width: 4;
+}
+
+.fret-spot {
+    fill: var(--bg-secondary);
+    stroke: var(--border);
+    stroke-width: 1;
+    cursor: default;
+    transition: all var(--transition);
+}
+
+.fret-spot.interactive {
+    cursor: pointer;
+}
+
+.fret-spot.interactive:hover {
+    fill: var(--accent);
+    fill-opacity: 0.3;
+}
+
+.fret-spot.highlighted {
+    fill: var(--accent);
+    stroke: var(--accent-hover);
+    stroke-width: 2;
+}
+
+.fret-spot.selected {
+    fill: var(--warning);
+    stroke: #fbbf24;
+    stroke-width: 2;
+}
+
+.fret-spot.correct {
+    fill: var(--success);
+    stroke: #4ade80;
+    stroke-width: 2;
+}
+
+.fret-spot.missed {
+    fill: var(--error);
+    stroke: #f87171;
+    stroke-width: 2;
+}
+
+.fret-spot.wrong {
+    fill: var(--error);
+    fill-opacity: 0.5;
+    stroke: #f87171;
+    stroke-width: 2;
+}
+
+.fret-label {
+    fill: var(--text-secondary);
+    font-size: 12px;
+    text-anchor: middle;
+}
+
+.string-label {
+    fill: var(--text-secondary);
+    font-size: 14px;
+    text-anchor: middle;
+    font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .app {
+        padding: 0.75rem;
+    }
+
+    .card {
+        padding: 1.25rem;
+    }
+
+    .header h1 {
+        font-size: 1.5rem;
+    }
+
+    .nav-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .bpm-display #bpm-value {
+        font-size: 3rem;
+    }
+
+    .results-stats {
+        gap: 1rem;
+    }
+
+    .stat-value {
+        font-size: 2rem;
+    }
+}
