@@ -7,6 +7,7 @@ const NoteIdentification = {
     times: [],
     missed: [],
     currentPosition: null,
+    previousNote: null,
     questionStartTime: null,
 
     init() {
@@ -48,6 +49,7 @@ const NoteIdentification = {
         this.score = 0;
         this.times = [];
         this.missed = [];
+        this.previousNote = null;
 
         this.setupEl.classList.add('hidden');
         this.resultsEl.classList.add('hidden');
@@ -62,8 +64,13 @@ const NoteIdentification = {
         this.currentQuestion++;
         this.updateDisplay();
 
-        // Get random position
-        this.currentPosition = Fretboard.getRandomPosition();
+        // Get random position, ensuring note differs from previous (including enharmonics)
+        let currentNote;
+        do {
+            this.currentPosition = Fretboard.getRandomPosition();
+            currentNote = Fretboard.getNoteAt(this.currentPosition.string, this.currentPosition.fret);
+        } while (Fretboard.isSameNote(currentNote, this.previousNote));
+        this.previousNote = currentNote;
 
         // Render fretboard with highlighted position
         Fretboard.render(this.fretboardEl, {
@@ -140,16 +147,25 @@ const NoteIdentification = {
         this.avgTimeEl.textContent = avgTime;
 
         // Show missed notes
+        this.missedEl.innerHTML = '';
         if (this.missed.length > 0) {
-            let missedHTML = '<h4>Notes to Practice:</h4><ul>';
+            const header = document.createElement('h4');
+            header.textContent = 'Notes to Practice:';
+            this.missedEl.appendChild(header);
+
+            const list = document.createElement('ul');
             this.missed.forEach(m => {
                 const stringName = Fretboard.STRING_NAMES[m.position.string];
-                missedHTML += `<li>String ${stringName}, Fret ${m.position.fret}: ${m.correctNote} (you said: ${m.userAnswer})</li>`;
+                const li = document.createElement('li');
+                li.textContent = `String ${stringName}, Fret ${m.position.fret}: ${m.correctNote} (you said: ${m.userAnswer})`;
+                list.appendChild(li);
             });
-            missedHTML += '</ul>';
-            this.missedEl.innerHTML = missedHTML;
+            this.missedEl.appendChild(list);
         } else {
-            this.missedEl.innerHTML = '<p style="color: var(--success);">Perfect score!</p>';
+            const perfect = document.createElement('p');
+            perfect.style.color = 'var(--success)';
+            perfect.textContent = 'Perfect score!';
+            this.missedEl.appendChild(perfect);
         }
     },
 
