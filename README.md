@@ -48,6 +48,14 @@ A browser-based app to help learn and practice guitar. No dependencies, no build
 - Filter by triad type or view all
 - Root notes highlighted in gold
 
+#### Chord Progressions
+- View diatonic chords for any key and mode
+- All seven modes: Major (Ionian), Natural Minor (Aeolian), Dorian, Phrygian, Lydian, Mixolydian, Locrian
+- Shows all seven chords with roman numeral notation
+- Common progressions for each mode with chord names
+- Fretboard diagrams for diminished chord voicings
+- Root notes highlighted in gold
+
 ## Project Structure
 
 ```
@@ -61,7 +69,8 @@ guitar-practice/
     ├── note-identification.js # Note ID game
     ├── fretboard-click.js     # Fret Click game
     ├── scales.js              # CAGED scale diagrams
-    └── triads.js              # Triad voicing diagrams
+    ├── triads.js              # Triad voicing diagrams
+    └── chord-progressions.js  # Diatonic chord progressions
 ```
 
 ## Browser Support

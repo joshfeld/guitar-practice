@@ -618,6 +618,164 @@ select:focus, input[type="text"]:focus {
     stroke-width: 2;
 }
 
+/* Chord Progressions Module */
+.progressions-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.progressions-controls .control-group {
+    min-width: 150px;
+    margin-bottom: 0;
+}
+
+.progression-info {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+#progression-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.progression-chords {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+.progression-chord {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: var(--bg-secondary);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    min-width: 70px;
+}
+
+.progression-chord.has-diagram {
+    border-color: var(--accent);
+    background: rgba(99, 102, 241, 0.1);
+}
+
+.chord-numeral {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+}
+
+.chord-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.progression-diagrams {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.chord-diagram-section {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    border: 1px solid var(--border);
+}
+
+.chord-diagram-header {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.chord-diagram-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.chord-diagram-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 0.25rem;
+}
+
+.chord-diagram-content {
+    display: flex;
+    justify-content: center;
+}
+
+.chord-diagram-content .fretboard-container {
+    margin: 0;
+    padding: 0;
+}
+
+.fret-spot.chord-note {
+    fill: var(--accent);
+    stroke: var(--accent-hover);
+    stroke-width: 2;
+}
+
+.fret-spot.chord-root {
+    fill: var(--warning);
+    stroke: #fbbf24;
+    stroke-width: 2;
+}
+
+/* Common Progressions */
+.common-progressions {
+    margin-bottom: 2rem;
+}
+
+.progressions-header {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.progressions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.progression-item {
+    display: grid;
+    grid-template-columns: 120px 1fr auto;
+    gap: 1rem;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: var(--bg-secondary);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+}
+
+.progression-item-name {
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.progression-item-chords {
+    color: var(--text-primary);
+}
+
+.progression-item-numerals {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    text-align: right;
+}
+
 /* Fretboard SVG Styles */
 .fret-marker {
     fill: var(--border);
@@ -775,5 +933,29 @@ select:focus, input[type="text"]:focus {
 
     .triad-voicing {
         overflow-x: auto;
+    }
+
+    .progressions-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .progression-chord {
+        min-width: 60px;
+        padding: 0.5rem 0.75rem;
+    }
+
+    .chord-diagram-content {
+        overflow-x: auto;
+    }
+
+    .progression-item {
+        grid-template-columns: 1fr;
+        gap: 0.25rem;
+        text-align: center;
+    }
+
+    .progression-item-numerals {
+        text-align: center;
     }
 }

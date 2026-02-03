@@ -29,6 +29,7 @@
                     <div class="nav-buttons">
                         <button class="nav-btn" data-module="scales">Scales</button>
                         <button class="nav-btn" data-module="triads">Triads</button>
+                        <button class="nav-btn" data-module="chord-progressions">Progressions</button>
                     </div>
                 </div>
             </nav>
@@ -241,6 +242,49 @@
                     <div id="triads-diagrams" class="triads-diagrams"></div>
                 </div>
             </section>
+
+            <!-- Chord Progressions Module -->
+            <section id="chord-progressions" class="module">
+                <div class="card">
+                    <h2>Chord Progressions</h2>
+                    <div class="progressions-controls">
+                        <div class="control-group">
+                            <label for="progression-key">Key</label>
+                            <select id="progression-key">
+                                <option value="0">C</option>
+                                <option value="1">C# / Db</option>
+                                <option value="2">D</option>
+                                <option value="3">D# / Eb</option>
+                                <option value="4">E</option>
+                                <option value="5">F</option>
+                                <option value="6">F# / Gb</option>
+                                <option value="7">G</option>
+                                <option value="8">G# / Ab</option>
+                                <option value="9">A</option>
+                                <option value="10">A# / Bb</option>
+                                <option value="11">B</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label for="progression-scale">Scale / Mode</label>
+                            <select id="progression-scale">
+                                <option value="major">Major (Ionian)</option>
+                                <option value="minor">Natural Minor (Aeolian)</option>
+                                <option value="dorian">Dorian</option>
+                                <option value="phrygian">Phrygian</option>
+                                <option value="lydian">Lydian</option>
+                                <option value="mixolydian">Mixolydian</option>
+                                <option value="locrian">Locrian</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="progression-info">
+                        <span id="progression-name">C Major</span>
+                    </div>
+                    <div id="progression-chords" class="progression-chords"></div>
+                    <div id="progression-diagrams" class="progression-diagrams"></div>
+                </div>
+            </section>
         </main>
     </div>
 
@@ -250,6 +294,7 @@
     <script src="js/fretboard-click.js"></script>
     <script src="js/scales.js"></script>
     <script src="js/triads.js"></script>
+    <script src="js/chord-progressions.js"></script>
     <script>
         // Navigation
         document.querySelectorAll('.nav-btn').forEach(btn => {
