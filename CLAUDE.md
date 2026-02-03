@@ -2,10 +2,10 @@
 
 ## Project Overview
 
-A browser-based guitar learning app with six modules organized into three categories:
+A browser-based guitar learning app with seven modules organized into three categories:
 - **Practice Aids:** Metronome
 - **Interactive Learning:** Note Identification game, Fretboard Click game
-- **Studying:** Scale diagrams (CAGED), Triad voicing diagrams
+- **Studying:** Scale diagrams (CAGED), Triad voicing diagrams, Chord Progressions
 
 Built with vanilla HTML/CSS/JavaScript—no frameworks, no build step, no dependencies.
 
@@ -29,6 +29,7 @@ Built with vanilla HTML/CSS/JavaScript—no frameworks, no build step, no depend
 | `js/fretboard-click.js` | Game: show a note name, user clicks all matching frets. Tracks perfect rounds. |
 | `js/scales.js` | CAGED scale diagrams. Shows 5 shape positions for Major, Minor, Pentatonic Major/Minor scales. |
 | `js/triads.js` | Triad voicing diagrams. Shows all inversions across 4 string sets for Major, Minor, Dim, Aug triads. |
+| `js/chord-progressions.js` | Diatonic chord progressions. Shows chords and common progressions for all 7 modes. |
 | `css/styles.css` | Dark theme with CSS custom properties. All styling in one file. |
 
 ## Fretboard Data Model
@@ -59,7 +60,7 @@ Both use Web Audio API. AudioContext is created lazily on first user interaction
 
 ## Pre-Commit Workflow
 
-**Before committing changes, always:**
+**When the user requests a commit (or commit and push), perform the following checks before committing. Allow the user to review all changes before the commit is made.**
 
 1. **Security review:** Check all new/modified code for vulnerabilities:
    - XSS: Ensure user input is never inserted via `innerHTML`. Use `textContent` or DOM methods.
@@ -69,6 +70,8 @@ Both use Web Audio API. AudioContext is created lazily on first user interaction
 2. **README check:** If the commit adds new features, updates functionality, or changes the project structure:
    - Update `README.md` to document the changes
    - Keep feature descriptions concise and organized by category
+
+3. **User review:** Present the changes and allow the user to review before executing the commit.
 
 ## Common Tasks
 
@@ -92,6 +95,10 @@ Both use Web Audio API. AudioContext is created lazily on first user interaction
 - Add entry to `TRIAD_TYPES` in `triads.js`
 - Add option to `#triad-type` select in `index.html`
 
+**Add new mode to chord progressions:**
+- Add entry to `MODES` object in `chord-progressions.js` with intervals, qualities, numerals, and progressions
+- Add option to `#progression-scale` select in `index.html`
+
 ## Testing
 
 No test framework. Open `index.html` in browser and manually test. For WSL: `explorer.exe index.html`
@@ -99,7 +106,7 @@ No test framework. Open `index.html` in browser and manually test. For WSL: `exp
 ## Potential Enhancements
 
 If extending this app, consider:
-- Chord diagrams / chord identification game
+- Chord identification game
 - Progress tracking with localStorage
 - Custom tuning support (data model already supports it—just change `TUNING` array)
 - Replay button for note audio in games
