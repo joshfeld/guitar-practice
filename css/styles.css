@@ -527,6 +527,97 @@ select:focus, input[type="text"]:focus {
     stroke-width: 2;
 }
 
+/* Triads Module */
+.triads-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.triads-controls .control-group {
+    min-width: 150px;
+    margin-bottom: 0;
+}
+
+.triads-diagrams {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.triad-type-section {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    border: 1px solid var(--border);
+}
+
+.triad-type-header {
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.triad-type-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.triad-type-notes {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: 0.25rem;
+}
+
+.triad-voicings {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.triad-voicing {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+}
+
+.triad-voicing-header {
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.triad-voicing-name {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+
+.triad-voicing-strings {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.triad-voicing .fretboard-container {
+    margin: 0;
+    padding: 0;
+}
+
+.fret-spot.triad-note {
+    fill: var(--accent);
+    stroke: var(--accent-hover);
+    stroke-width: 2;
+}
+
+.fret-spot.triad-root {
+    fill: var(--warning);
+    stroke: #fbbf24;
+    stroke-width: 2;
+}
+
 /* Fretboard SVG Styles */
 .fret-marker {
     fill: var(--border);
@@ -675,6 +766,14 @@ select:focus, input[type="text"]:focus {
     }
 
     .scale-diagram {
+        overflow-x: auto;
+    }
+
+    .triad-voicings {
+        grid-template-columns: 1fr;
+    }
+
+    .triad-voicing {
         overflow-x: auto;
     }
 }

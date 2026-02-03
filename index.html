@@ -28,6 +28,7 @@
                     <span class="nav-label">Studying</span>
                     <div class="nav-buttons">
                         <button class="nav-btn" data-module="scales">Scales</button>
+                        <button class="nav-btn" data-module="triads">Triads</button>
                     </div>
                 </div>
             </nav>
@@ -203,6 +204,43 @@
                     <div id="scales-diagrams" class="scales-diagrams"></div>
                 </div>
             </section>
+
+            <!-- Triads Module -->
+            <section id="triads" class="module">
+                <div class="card">
+                    <h2>Triad Diagrams</h2>
+                    <div class="triads-controls">
+                        <div class="control-group">
+                            <label for="triad-root">Root Note</label>
+                            <select id="triad-root">
+                                <option value="0">C</option>
+                                <option value="1">C# / Db</option>
+                                <option value="2">D</option>
+                                <option value="3">D# / Eb</option>
+                                <option value="4">E</option>
+                                <option value="5">F</option>
+                                <option value="6">F# / Gb</option>
+                                <option value="7">G</option>
+                                <option value="8">G# / Ab</option>
+                                <option value="9">A</option>
+                                <option value="10">A# / Bb</option>
+                                <option value="11">B</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label for="triad-type">Triad Type</label>
+                            <select id="triad-type">
+                                <option value="all">All Types</option>
+                                <option value="major">Major</option>
+                                <option value="minor">Minor</option>
+                                <option value="diminished">Diminished</option>
+                                <option value="augmented">Augmented</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="triads-diagrams" class="triads-diagrams"></div>
+                </div>
+            </section>
         </main>
     </div>
 
@@ -211,6 +249,7 @@
     <script src="js/note-identification.js"></script>
     <script src="js/fretboard-click.js"></script>
     <script src="js/scales.js"></script>
+    <script src="js/triads.js"></script>
     <script>
         // Navigation
         document.querySelectorAll('.nav-btn').forEach(btn => {
