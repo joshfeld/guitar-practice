@@ -11,9 +11,25 @@
         <header class="header">
             <h1>Guitar Practice</h1>
             <nav class="nav">
-                <button class="nav-btn active" data-module="metronome">Metronome</button>
-                <button class="nav-btn" data-module="note-id">Note ID</button>
-                <button class="nav-btn" data-module="fret-click">Fret Click</button>
+                <div class="nav-group">
+                    <span class="nav-label">Practice Aids</span>
+                    <div class="nav-buttons">
+                        <button class="nav-btn active" data-module="metronome">Metronome</button>
+                    </div>
+                </div>
+                <div class="nav-group">
+                    <span class="nav-label">Interactive Learning</span>
+                    <div class="nav-buttons">
+                        <button class="nav-btn" data-module="note-id">Note ID</button>
+                        <button class="nav-btn" data-module="fret-click">Fret Click</button>
+                    </div>
+                </div>
+                <div class="nav-group">
+                    <span class="nav-label">Studying</span>
+                    <div class="nav-buttons">
+                        <button class="nav-btn" data-module="scales">Scales</button>
+                    </div>
+                </div>
             </nav>
         </header>
 
@@ -150,6 +166,43 @@
                     </div>
                 </div>
             </section>
+
+            <!-- Scales Module -->
+            <section id="scales" class="module">
+                <div class="card">
+                    <h2>Scale Diagrams</h2>
+                    <div class="scales-controls">
+                        <div class="control-group">
+                            <label for="scale-key">Key</label>
+                            <select id="scale-key">
+                                <option value="0">C</option>
+                                <option value="1">C# / Db</option>
+                                <option value="2">D</option>
+                                <option value="3">D# / Eb</option>
+                                <option value="4">E</option>
+                                <option value="5">F</option>
+                                <option value="6">F# / Gb</option>
+                                <option value="7">G</option>
+                                <option value="8">G# / Ab</option>
+                                <option value="9">A</option>
+                                <option value="10">A# / Bb</option>
+                                <option value="11">B</option>
+                            </select>
+                        </div>
+                        <div class="scale-types">
+                            <button class="scale-type-btn active" data-scale="major">Major</button>
+                            <button class="scale-type-btn" data-scale="minor">Minor</button>
+                            <button class="scale-type-btn" data-scale="pentatonic-major">Pentatonic Major</button>
+                            <button class="scale-type-btn" data-scale="pentatonic-minor">Pentatonic Minor</button>
+                        </div>
+                    </div>
+                    <div class="scale-info">
+                        <span id="scale-name">C Major</span>
+                        <div id="scale-notes" class="scale-notes"></div>
+                    </div>
+                    <div id="scales-diagrams" class="scales-diagrams"></div>
+                </div>
+            </section>
         </main>
     </div>
 
@@ -157,6 +210,7 @@
     <script src="js/metronome.js"></script>
     <script src="js/note-identification.js"></script>
     <script src="js/fretboard-click.js"></script>
+    <script src="js/scales.js"></script>
     <script>
         // Navigation
         document.querySelectorAll('.nav-btn').forEach(btn => {
