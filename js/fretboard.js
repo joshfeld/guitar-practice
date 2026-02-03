@@ -48,6 +48,15 @@ const Fretboard = {
         return false;
     },
 
+    // Check if two notes are the same (including enharmonic equivalents)
+    isSameNote(note1, note2) {
+        if (!note1 || !note2) return false;
+        if (note1 === note2) return true;
+        if (this.ENHARMONICS[note1] === note2) return true;
+        if (this.ENHARMONICS[note2] === note1) return true;
+        return false;
+    },
+
     // Get all positions of a specific note on the fretboard
     getNotePositions(noteName) {
         const positions = [];

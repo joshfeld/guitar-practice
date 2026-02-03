@@ -6,6 +6,7 @@ const FretboardClick = {
     score: 0,
     times: [],
     targetNote: null,
+    previousNote: null,
     selectedPositions: new Set(),
     fretCircles: null,
     roundStartTime: null,
@@ -41,6 +42,7 @@ const FretboardClick = {
         this.currentRound = 0;
         this.score = 0;
         this.times = [];
+        this.previousNote = null;
 
         this.setupEl.classList.add('hidden');
         this.resultsEl.classList.add('hidden');
@@ -56,8 +58,11 @@ const FretboardClick = {
         this.selectedPositions.clear();
         this.updateDisplay();
 
-        // Get random note
-        this.targetNote = Fretboard.getRandomNote();
+        // Get random note, ensuring it differs from previous (including enharmonics)
+        do {
+            this.targetNote = Fretboard.getRandomNote();
+        } while (Fretboard.isSameNote(this.targetNote, this.previousNote));
+        this.previousNote = this.targetNote;
         this.targetEl.textContent = this.targetNote;
 
         // Render interactive fretboard
