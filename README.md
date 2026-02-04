@@ -31,6 +31,14 @@ A browser-based app to help learn and practice guitar. No dependencies, no build
 - Configurable number of rounds
 - Results summary with perfect rounds and average time
 
+#### Root ID
+- Identify the root note in triad shapes by recognizing the pattern
+- Triad types: Major, Minor, Diminished (filter by type or practice all)
+- Tests shape recognition across all four string sets and inversions
+- Note names revealed after answering
+- Configurable number of questions
+- Results summary with score and average time
+
 ### Studying
 
 #### Scales
@@ -68,6 +76,7 @@ guitar-practice/
     ├── metronome.js           # Metronome module
     ├── note-identification.js # Note ID game
     ├── fretboard-click.js     # Fret Click game
+    ├── root-id.js             # Root ID game
     ├── scales.js              # CAGED scale diagrams
     ├── triads.js              # Triad voicing diagrams
     └── chord-progressions.js  # Diatonic chord progressions

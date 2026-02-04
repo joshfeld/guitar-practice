@@ -22,6 +22,7 @@
                     <div class="nav-buttons">
                         <button class="nav-btn" data-module="note-id">Note ID</button>
                         <button class="nav-btn" data-module="fret-click">Fret Click</button>
+                        <button class="nav-btn" data-module="root-id">Root ID</button>
                     </div>
                 </div>
                 <div class="nav-group">
@@ -169,6 +170,66 @@
                 </div>
             </section>
 
+            <!-- Root ID Module -->
+            <section id="root-id" class="module">
+                <div class="card">
+                    <h2>Find the Root</h2>
+                    <div id="root-id-setup" class="game-setup">
+                        <p>A triad shape will be shown on the fretboard. Click the note that is the root based on the shape!</p>
+                        <div class="setup-controls">
+                            <div class="control-group">
+                                <label for="root-id-type">Triad Type</label>
+                                <select id="root-id-type">
+                                    <option value="all">All Types</option>
+                                    <option value="major">Major</option>
+                                    <option value="minor">Minor</option>
+                                    <option value="dim">Diminished</option>
+                                </select>
+                            </div>
+                            <div class="control-group">
+                                <label for="root-id-questions">Questions</label>
+                                <select id="root-id-questions">
+                                    <option value="5">5</option>
+                                    <option value="10" selected>10</option>
+                                    <option value="15">15</option>
+                                    <option value="20">20</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button id="root-id-start" class="btn btn-primary">Start Game</button>
+                    </div>
+                    <div id="root-id-game" class="game-area hidden">
+                        <div class="game-stats">
+                            <span>Question: <strong id="root-id-current">1</strong>/<strong id="root-id-total">10</strong></span>
+                            <span>Score: <strong id="root-id-score">0</strong></span>
+                        </div>
+                        <div class="chord-prompt">
+                            <span id="root-id-triad-type">Major Triad</span>
+                        </div>
+                        <div id="root-id-fretboard" class="fretboard-container"></div>
+                        <div id="root-id-feedback" class="feedback"></div>
+                    </div>
+                    <div id="root-id-results" class="game-results hidden">
+                        <h3>Results</h3>
+                        <div class="results-stats">
+                            <div class="stat">
+                                <span class="stat-value" id="root-id-final-score">0</span>
+                                <span class="stat-label">Correct</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value" id="root-id-final-total">0</span>
+                                <span class="stat-label">Total</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value" id="root-id-avg-time">0</span>
+                                <span class="stat-label">Avg Time (s)</span>
+                            </div>
+                        </div>
+                        <button id="root-id-restart" class="btn btn-primary">Play Again</button>
+                    </div>
+                </div>
+            </section>
+
             <!-- Scales Module -->
             <section id="scales" class="module">
                 <div class="card">
@@ -292,6 +353,7 @@
     <script src="js/metronome.js"></script>
     <script src="js/note-identification.js"></script>
     <script src="js/fretboard-click.js"></script>
+    <script src="js/root-id.js"></script>
     <script src="js/scales.js"></script>
     <script src="js/triads.js"></script>
     <script src="js/chord-progressions.js"></script>
