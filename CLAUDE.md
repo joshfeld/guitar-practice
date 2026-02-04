@@ -2,9 +2,9 @@
 
 ## Project Overview
 
-A browser-based guitar learning app with seven modules organized into three categories:
+A browser-based guitar learning app with eight modules organized into three categories:
 - **Practice Aids:** Metronome
-- **Interactive Learning:** Note Identification game, Fretboard Click game
+- **Interactive Learning:** Note Identification game, Fretboard Click game, Root ID game
 - **Studying:** Scale diagrams (CAGED), Triad voicing diagrams, Chord Progressions
 
 Built with vanilla HTML/CSS/JavaScript—no frameworks, no build step, no dependencies.
@@ -27,6 +27,7 @@ Built with vanilla HTML/CSS/JavaScript—no frameworks, no build step, no depend
 | `js/metronome.js` | Web Audio API metronome with precise scheduling. Uses oscillators for click sounds. |
 | `js/note-identification.js` | Game: highlight a fret, user types the note name. Tracks timing and accuracy. |
 | `js/fretboard-click.js` | Game: show a note name, user clicks all matching frets. Tracks perfect rounds. |
+| `js/root-id.js` | Game: identify root note in triad shapes by pattern recognition. Supports Major, Minor, Dim triads. |
 | `js/scales.js` | CAGED scale diagrams. Shows 5 shape positions for Major, Minor, Pentatonic Major/Minor scales. |
 | `js/triads.js` | Triad voicing diagrams. Shows all inversions across 4 string sets for Major, Minor, Dim, Aug triads. |
 | `js/chord-progressions.js` | Diatonic chord progressions. Shows chords and common progressions for all 7 modes. |
