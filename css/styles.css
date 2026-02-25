@@ -802,6 +802,82 @@ select:focus, input[type="text"]:focus {
     text-align: right;
 }
 
+/* Scale Run Module */
+.scale-run-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: flex-end;
+    margin-bottom: 1.5rem;
+}
+
+.scale-run-controls .control-group {
+    margin-bottom: 0;
+    min-width: 120px;
+}
+
+.scale-run-types {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.scale-run-type-btn {
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--border);
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all var(--transition);
+}
+
+.scale-run-type-btn:hover {
+    border-color: var(--accent);
+    color: var(--text-primary);
+}
+
+.scale-run-type-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+}
+
+.scale-run-info {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+#scale-run-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.scale-run-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    justify-content: center;
+    margin-top: 0.75rem;
+}
+
+.scale-run-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.scale-run-legend-swatch {
+    width: 13px;
+    height: 13px;
+    border-radius: 3px;
+    flex-shrink: 0;
+}
+
 /* Fretboard SVG Styles */
 .fret-marker {
     fill: var(--border);
@@ -983,5 +1059,19 @@ select:focus, input[type="text"]:focus {
 
     .progression-item-numerals {
         text-align: center;
+    }
+
+    .scale-run-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .scale-run-types {
+        justify-content: center;
+    }
+
+    .scale-run-type-btn {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.8rem;
     }
 }

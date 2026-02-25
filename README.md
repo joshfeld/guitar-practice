@@ -64,6 +64,15 @@ A browser-based app to help learn and practice guitar. No dependencies, no build
 - Fretboard diagrams for diminished chord voicings
 - Root notes highlighted in gold
 
+### Exercises
+
+#### Scale Run
+- Full-neck scale diagram (frets 0–12) for any key, Major or Minor
+- All five CAGED positions overlaid as color-coded bands so you can see exactly where each position lives and when to shift
+- Overlapping zones between adjacent bands show the transition regions
+- Root notes highlighted in gold, scale tones in purple, with note names on every dot
+- Legend below the diagram shows each position's name and fret range
+
 ## Project Structure
 
 ```
@@ -79,7 +88,8 @@ guitar-practice/
     ├── root-id.js             # Root ID game
     ├── scales.js              # CAGED scale diagrams
     ├── triads.js              # Triad voicing diagrams
-    └── chord-progressions.js  # Diatonic chord progressions
+    ├── chord-progressions.js  # Diatonic chord progressions
+    └── scale-run.js           # Scale Run exercise (full-neck CAGED diagram)
 ```
 
 ## Browser Support

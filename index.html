@@ -33,6 +33,12 @@
                         <button class="nav-btn" data-module="chord-progressions">Progressions</button>
                     </div>
                 </div>
+                <div class="nav-group">
+                    <span class="nav-label">Exercises</span>
+                    <div class="nav-buttons">
+                        <button class="nav-btn" data-module="scale-run">Scales</button>
+                    </div>
+                </div>
             </nav>
         </header>
 
@@ -346,6 +352,41 @@
                     <div id="progression-diagrams" class="progression-diagrams"></div>
                 </div>
             </section>
+            <!-- Scale Run Module -->
+            <section id="scale-run" class="module">
+                <div class="card">
+                    <h2>Scale Exercise</h2>
+                    <div class="scale-run-controls">
+                        <div class="control-group">
+                            <label for="scale-run-key">Key</label>
+                            <select id="scale-run-key">
+                                <option value="0">C</option>
+                                <option value="1">C# / Db</option>
+                                <option value="2">D</option>
+                                <option value="3">D# / Eb</option>
+                                <option value="4">E</option>
+                                <option value="5">F</option>
+                                <option value="6">F# / Gb</option>
+                                <option value="7">G</option>
+                                <option value="8">G# / Ab</option>
+                                <option value="9">A</option>
+                                <option value="10">A# / Bb</option>
+                                <option value="11">B</option>
+                            </select>
+                        </div>
+                        <div class="scale-run-types">
+                            <button class="scale-run-type-btn active" data-scale="major">Major</button>
+                            <button class="scale-run-type-btn" data-scale="minor">Minor</button>
+                        </div>
+                    </div>
+                    <div class="scale-run-info">
+                        <span id="scale-run-name">C Major</span>
+                        <div id="scale-run-notes" class="scale-notes"></div>
+                    </div>
+                    <div id="scale-run-diagram" class="fretboard-container"></div>
+                    <div id="scale-run-legend" class="scale-run-legend"></div>
+                </div>
+            </section>
         </main>
     </div>
 
@@ -357,6 +398,7 @@
     <script src="js/scales.js"></script>
     <script src="js/triads.js"></script>
     <script src="js/chord-progressions.js"></script>
+    <script src="js/scale-run.js"></script>
     <script>
         // Navigation
         document.querySelectorAll('.nav-btn').forEach(btn => {
