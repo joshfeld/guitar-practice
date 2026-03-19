@@ -39,6 +39,14 @@ A browser-based app to help learn and practice guitar. No dependencies, no build
 - Configurable number of questions
 - Results summary with score and average time
 
+#### Interval Ear Training
+- Hear two notes and identify the interval between them
+- Select any combination of 12 intervals (m2 through Octave)
+- Direction modes: Ascending, Descending, or Both
+- Replay button to hear the interval again
+- Configurable number of questions
+- Results summary with score and average time
+
 ### Studying
 
 #### Scales
@@ -89,7 +97,8 @@ guitar-practice/
     ├── scales.js              # CAGED scale diagrams
     ├── triads.js              # Triad voicing diagrams
     ├── chord-progressions.js  # Diatonic chord progressions
-    └── scale-run.js           # Scale Run exercise (full-neck CAGED diagram)
+    ├── scale-run.js           # Scale Run exercise (full-neck CAGED diagram)
+    └── interval-training.js   # Interval ear training exercise
 ```
 
 ## Browser Support

@@ -23,6 +23,7 @@
                         <button class="nav-btn" data-module="note-id">Note ID</button>
                         <button class="nav-btn" data-module="fret-click">Fret Click</button>
                         <button class="nav-btn" data-module="root-id">Root ID</button>
+                        <button class="nav-btn" data-module="interval-training">Intervals</button>
                     </div>
                 </div>
                 <div class="nav-group">
@@ -387,6 +388,87 @@
                     <div id="scale-run-legend" class="scale-run-legend"></div>
                 </div>
             </section>
+            <!-- Interval Ear Training Module -->
+            <section id="interval-training" class="module">
+                <div class="card">
+                    <h2>Interval Ear Training</h2>
+                    <div id="interval-setup" class="game-setup">
+                        <p>Two notes will be played. Identify the interval between them!</p>
+                        <div class="interval-config">
+                            <div class="interval-selection">
+                                <label>Select Intervals</label>
+                                <div class="interval-select-actions">
+                                    <button id="interval-select-all" class="btn-link">Select All</button>
+                                    <button id="interval-deselect-all" class="btn-link">Deselect All</button>
+                                </div>
+                                <div class="interval-checkboxes">
+                                    <label class="interval-checkbox"><input type="checkbox" value="1" checked><span>Minor 2nd</span></label>
+                                    <label class="interval-checkbox"><input type="checkbox" value="2" checked><span>Major 2nd</span></label>
+                                    <label class="interval-checkbox"><input type="checkbox" value="3" checked><span>Minor 3rd</span></label>
+                                    <label class="interval-checkbox"><input type="checkbox" value="4" checked><span>Major 3rd</span></label>
+                                    <label class="interval-checkbox"><input type="checkbox" value="5" checked><span>Perfect 4th</span></label>
+                                    <label class="interval-checkbox"><input type="checkbox" value="6"><span>Tritone</span></label>
+                                    <label class="interval-checkbox"><input type="checkbox" value="7" checked><span>Perfect 5th</span></label>
+                                    <label class="interval-checkbox"><input type="checkbox" value="8"><span>Minor 6th</span></label>
+                                    <label class="interval-checkbox"><input type="checkbox" value="9"><span>Major 6th</span></label>
+                                    <label class="interval-checkbox"><input type="checkbox" value="10"><span>Minor 7th</span></label>
+                                    <label class="interval-checkbox"><input type="checkbox" value="11"><span>Major 7th</span></label>
+                                    <label class="interval-checkbox"><input type="checkbox" value="12"><span>Octave</span></label>
+                                </div>
+                            </div>
+                            <div class="interval-options">
+                                <div class="control-group">
+                                    <label for="interval-direction">Direction</label>
+                                    <select id="interval-direction">
+                                        <option value="ascending">Ascending</option>
+                                        <option value="descending">Descending</option>
+                                        <option value="both">Both</option>
+                                    </select>
+                                </div>
+                                <div class="control-group">
+                                    <label for="interval-questions">Questions</label>
+                                    <select id="interval-questions">
+                                        <option value="5">5</option>
+                                        <option value="10" selected>10</option>
+                                        <option value="15">15</option>
+                                        <option value="20">20</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="interval-setup-feedback" class="feedback hidden"></div>
+                        <button id="interval-start" class="btn btn-primary">Start</button>
+                    </div>
+                    <div id="interval-game" class="game-area hidden">
+                        <div class="game-stats">
+                            <span>Question: <strong id="interval-current">1</strong>/<strong id="interval-total">10</strong></span>
+                            <span>Score: <strong id="interval-score">0</strong></span>
+                        </div>
+                        <div id="interval-direction-prompt" class="interval-direction-prompt hidden"></div>
+                        <button id="interval-replay" class="btn btn-primary interval-replay-btn">Replay</button>
+                        <div id="interval-answers" class="interval-answers"></div>
+                        <div id="interval-feedback" class="feedback"></div>
+                    </div>
+                    <div id="interval-results" class="game-results hidden">
+                        <h3>Results</h3>
+                        <div class="results-stats">
+                            <div class="stat">
+                                <span class="stat-value" id="interval-final-score">0</span>
+                                <span class="stat-label">Correct</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value" id="interval-final-total">0</span>
+                                <span class="stat-label">Total</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value" id="interval-avg-time">0</span>
+                                <span class="stat-label">Avg Time (s)</span>
+                            </div>
+                        </div>
+                        <button id="interval-restart" class="btn btn-primary">Play Again</button>
+                    </div>
+                </div>
+            </section>
         </main>
     </div>
 
@@ -399,6 +481,7 @@
     <script src="js/triads.js"></script>
     <script src="js/chord-progressions.js"></script>
     <script src="js/scale-run.js"></script>
+    <script src="js/interval-training.js"></script>
     <script>
         // Navigation
         document.querySelectorAll('.nav-btn').forEach(btn => {
